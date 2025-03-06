@@ -6,6 +6,20 @@ public class GamePlay : MonoBehaviour
 {
     //Singleton (to be completed)
     public static GamePlay Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("Multiple instances of GamePlay detected! Destroying duplicate.");
+            Destroy(gameObject);
+            return;
+        }
+    }
     public enum Direction
     {
         Left, Right 
