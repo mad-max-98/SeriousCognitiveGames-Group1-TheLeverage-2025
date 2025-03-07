@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GamePlay : MonoBehaviour
@@ -18,6 +19,8 @@ public class GamePlay : MonoBehaviour
             return;
         }
     }
+
+    public TextMeshProUGUI DirectionText;
     public enum Direction
     {
         Left, Right 
@@ -82,6 +85,7 @@ public class GamePlay : MonoBehaviour
             activeLeftSlot.transform.position = leftDownSlot.transform.position;
             activeRightSlot.transform.position = rightUpSlot.transform.position;
         }
+        DirectionText.text = currentDirection.ToString(); 
 
     }
 

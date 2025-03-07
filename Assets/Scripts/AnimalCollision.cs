@@ -19,13 +19,21 @@ public class AnimalCollision : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //collision with baloon
-        if (collision.gameObject.CompareTag("Baloon"))
+        if (collision.gameObject.CompareTag("Balloon"))
         {
-            print("Baloon");
+            print("Balloon");
+            //Animal is not selectable anymore
+            this.gameObject.GetComponent<AnimalSelector>().enabled = false;
+
             //move animal to baloon
             transform.SetParent(collision.gameObject.transform);
-            transform.position = collision.gameObject.transform.position;
-            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            
+            collision.gameObject.GetComponent<AnimalGroup>().AddAnimal(this.gameObject);
+
+            ScoreManager.Instance.ScoreIncrement();
+            //transform.position = collision.gameObject.transform.position;
+            //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
         }
 
         // collision with ground
