@@ -31,6 +31,8 @@ public class AnimalCollision : MonoBehaviour
             collision.gameObject.GetComponent<AnimalGroup>().AddAnimal(this.gameObject);
 
             ScoreManager.Instance.ScoreIncrement();
+
+            GamePlay.Instance.ClearAnimal(this.gameObject);
             //transform.position = collision.gameObject.transform.position;
             //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 

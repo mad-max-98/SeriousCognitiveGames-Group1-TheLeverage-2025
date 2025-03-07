@@ -21,6 +21,7 @@ public class GamePlay : MonoBehaviour
     }
 
     public TextMeshProUGUI DirectionText;
+    public Transform Leverage;
     public enum Direction
     {
         Left, Right 
@@ -150,12 +151,14 @@ public class GamePlay : MonoBehaviour
     {
         if (currentDirection == Direction.Left)
         {
-            activeRightSlot.ReleaseAnimal();
             activeLeftSlot.ReleaseAnimal();
+            activeRightSlot.ReleaseAnimal();
+            
         } else
         {
-            activeLeftSlot.ReleaseAnimal();
             activeRightSlot.ReleaseAnimal();
+            activeLeftSlot.ReleaseAnimal();
+            
         }
     } 
 
@@ -169,6 +172,8 @@ public class GamePlay : MonoBehaviour
         //Return left side animal
         LeftSideAnimalGroup.AddAnimal(activeLeftSlot.myAnimal);
         activeLeftSlot.myAnimal = null;
+
+        Leverage.transform.rotation = new Quaternion(0f,0f,0f,0f);
     }
 
     public void ClearAnimal(GameObject animal)

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalName: Elephant
   animalWeight: 4.62
-  animalGravityForce: 2.05
-  animalLinearDrag: 0
+  animalGravityForce: 4.57
+  animalLinearDrag: 0.389
   animalDimensions: {x: 2.4, y: 1.6}
   animalSprite: {fileID: 21300000, guid: 6247c80c2505fe64aae5bce904b82757, type: 3}
