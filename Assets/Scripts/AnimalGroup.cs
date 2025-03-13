@@ -78,5 +78,15 @@ public class AnimalGroup : MonoBehaviour
         AddAnimal(animal);
     }
 
-
+    public bool IsAnimalLeft ()
+    {
+        foreach (AnimalSlot slot in mySlots)
+        {
+            if (slot.myAnimal != null)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

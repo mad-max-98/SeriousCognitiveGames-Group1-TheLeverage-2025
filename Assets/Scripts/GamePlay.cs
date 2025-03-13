@@ -187,6 +187,13 @@ public class GamePlay : MonoBehaviour
     }
 
 
+    //Check if there is animal in animal groups
+    public bool CheckifAnimalLeft() {
+        if ( !LeftSideAnimalGroup.IsAnimalLeft() && !RightSideAnimalGroup.IsAnimalLeft())
+            return false;
+        return true;
+    }
+
     //public void SetAnimal(GameObject selectedAnimal , Direction direction)
     //{
     //    // if selected animal belongs to left side
