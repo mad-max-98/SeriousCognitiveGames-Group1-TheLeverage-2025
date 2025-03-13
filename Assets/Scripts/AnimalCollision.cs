@@ -25,6 +25,9 @@ public class AnimalCollision : MonoBehaviour
             //Animal is not selectable anymore
             this.gameObject.GetComponent<AnimalSelector>().enabled = false;
 
+            //Add another animal to the group of this animal to fill the place
+            GamePlay.Instance.ReplaceMovedAnimal(this.gameObject, GetComponentInParent<AnimalGroup>().groupDirection);
+
             //move animal to baloon
             transform.SetParent(collision.gameObject.transform);
             
@@ -32,7 +35,9 @@ public class AnimalCollision : MonoBehaviour
 
             ScoreManager.Instance.ScoreIncrement();
 
-            GamePlay.Instance.ClearAnimal(this.gameObject);
+            //GamePlay.Instance.ClearAnimal(this.gameObject);
+
+
             //transform.position = collision.gameObject.transform.position;
             //GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 

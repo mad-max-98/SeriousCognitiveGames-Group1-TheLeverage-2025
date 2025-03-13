@@ -47,6 +47,8 @@ public class GamePlay : MonoBehaviour
     //public GameObject animal_right;
     //public GameObject animal_left;
     //public GameObject animal_right_2;
+
+    public List<GameObject> AnimalsList;
     // Start is called before the first frame update
     void Start()
     {
@@ -186,6 +188,21 @@ public class GamePlay : MonoBehaviour
         else if (activeRightSlot.myAnimal == animal) { activeRightSlot.myAnimal = null; }
     }
 
+    //Add new animal to replace the animal that has left group to balloon
+    public void ReplaceMovedAnimal (GameObject animal, Direction groupDirection)
+    {  
+        //First remove this animal from gameplay
+        ClearAnimal(animal);
+        if (AnimalsList.Count > 0) {
+            //Create new animal
+            GameObject newAnimal = Instantiate(AnimalsList[Random.Range(0,AnimalsList.Count-1)]);
+            //Add the newly created animal to the side that has lost one of it's animals
+            if (groupDirection == Direction.Left) { LeftSideAnimalGroup.AddAnimal(newAnimal); }
+            else if (groupDirection == Direction.Right) { RightSideAnimalGroup.AddAnimal (newAnimal); }
+        }
+
+
+    }
 
     //Check if there is animal in animal groups
     public bool CheckifAnimalLeft() {
