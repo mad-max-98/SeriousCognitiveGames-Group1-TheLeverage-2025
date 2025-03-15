@@ -10,11 +10,17 @@ public class GameManager : MonoBehaviour
     //GamePlay
     private GamePlay _GamePlay;
 
+    //End of Level Panel
+    public GameObject EndOfLevelUIPanel;
+
     // Start is called before the first frame update
     void Start()
     {
         _TimeManager = GetComponent<TimeManager>();
         _GamePlay = GetComponent<GamePlay>();
+
+        //Hide end panel
+        EndPanelUI_Deactivate();
     }
 
     // Update is called once per frame
@@ -37,7 +43,46 @@ public class GameManager : MonoBehaviour
         //No: Win
         else { print("You Won!"); }
 
-        
-        
+        //Show panel
+        EndPanelUI_Activate();
+
+        //Pause the game
+        Game_Pause();
+        //Time.timeScale = 0;
+
+
     }
+
+    public void EndPanelUI_Activate()
+    {
+        EndOfLevelUIPanel.SetActive(true);
+    }
+
+    public void EndPanelUI_Deactivate()
+    {
+        EndOfLevelUIPanel.SetActive(false);
+    }
+
+
+    public void EndPanelUI_BtnReplay ()
+    {
+        //Reload the current scene
+    }
+
+    public void EndPanelUI_BtnHome ()
+    {
+        //Go to Home scene (Menu)
+    }
+
+    private void Game_Pause ()
+    {
+
+    }
+
+    private void Game_Continue ()
+    {
+
+    }
+
+
 }

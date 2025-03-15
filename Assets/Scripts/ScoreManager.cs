@@ -22,7 +22,7 @@ public class ScoreManager : MonoBehaviour
     }
 
 
-    public TextMeshProUGUI scoreText;
+    public List<TextMeshProUGUI> scoreTexts;
     public int score = 0;
 
     // Start is called before the first frame update
@@ -39,5 +39,7 @@ public class ScoreManager : MonoBehaviour
 
     public void ScoreIncrement () { score++; ScoreUpdate(); }
 
-    public void ScoreUpdate () { scoreText.text = "Score: " + score; }
+    public void ScoreUpdate () { //scoreText.text = "Score: " + score;
+        foreach (TextMeshProUGUI _text in scoreTexts) { _text.text = "Score: " + score.ToString();  }
+    }
 }
